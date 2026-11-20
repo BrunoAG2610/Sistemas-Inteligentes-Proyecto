@@ -50,9 +50,32 @@ venv.bak/
 *.code-workspace
 
 # ==========================================
-# Redes Neuronales, Modelos y Datasets
+# Datos (Modelo/data/raw y Modelo/data/processed)
 # ==========================================
-# Pesos y modelos entrenados (suelen ser muy pesados para Git)
+# Ignora todo el contenido dentro de raw y processed
+Modelo/data/raw/*
+Modelo/data/processed/*
+
+# Mantiene las carpetas visibles en GitHub si agregas estos archivos:
+!Modelo/data/raw/README.md
+!Modelo/data/processed/.gitkeep
+
+# Respaldo global para formatos de datos pesados en cualquier carpeta
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.npy
+*.npz
+*.tfrecord
+*.zip
+*.tar.gz
+*.rar
+
+# ==========================================
+# Redes Neuronales, Modelos y Logs
+# ==========================================
+# Pesos y modelos entrenados
 *.h5
 *.hdf5
 *.pkl
@@ -66,10 +89,9 @@ venv.bak/
 *.safetensors
 *.ckpt
 *.bin
-models/
+saved_models/
 checkpoints/
 weights/
-saved_models/
 
 # Logs de entrenamiento (TensorBoard, Weights & Biases, MLflow)
 logs/
@@ -78,22 +100,16 @@ wandb/
 mlruns/
 lightning_logs/
 
-# Datos y Datasets pesados
-data/
-datasets/
-*.csv
-*.tsv
-*.parquet
-*.feather
-*.npy
-*.npz
-*.tfrecord
-*.zip
-*.tar.gz
-*.rar
+# ==========================================
+# Credenciales y API Keys (Kaggle, etc.)
+# ==========================================
+kaggle.json
+.env.*
+!.env.example
+secrets.json
 
 # ==========================================
-# Sistema Operativo y Varios
+# Sistema Operativo
 # ==========================================
 # Windows
 Thumbs.db
@@ -108,8 +124,3 @@ Desktop.ini
 # Linux
 *~
 .directory
-
-# Variables de entorno y credenciales (API keys, etc.)
-.env.*
-!.env.example
-secrets.json
