@@ -1,0 +1,115 @@
+# ==========================================
+# Python & Entornos Virtuales
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Entornos virtuales (venv, conda, poetry, etc.)
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.conda/
+
+# ==========================================
+# Jupyter Notebook
+# ==========================================
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+*.nbconvert.ipynb
+
+# ==========================================
+# VS Code
+# ==========================================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# ==========================================
+# Redes Neuronales, Modelos y Datasets
+# ==========================================
+# Pesos y modelos entrenados (suelen ser muy pesados para Git)
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.onnx
+*.pb
+*.tflite
+*.safetensors
+*.ckpt
+*.bin
+models/
+checkpoints/
+weights/
+saved_models/
+
+# Logs de entrenamiento (TensorBoard, Weights & Biases, MLflow)
+logs/
+runs/
+wandb/
+mlruns/
+lightning_logs/
+
+# Datos y Datasets pesados
+data/
+datasets/
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.npy
+*.npz
+*.tfrecord
+*.zip
+*.tar.gz
+*.rar
+
+# ==========================================
+# Sistema Operativo y Varios
+# ==========================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.directory
+
+# Variables de entorno y credenciales (API keys, etc.)
+.env.*
+!.env.example
+secrets.json
