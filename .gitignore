@@ -89,7 +89,6 @@ Modelo/data/processed/*
 *.safetensors
 *.ckpt
 *.bin
-saved_models/
 checkpoints/
 weights/
 
