@@ -4,7 +4,8 @@
 ## Contribuidores
 xskf-4 - Sebastian Hernandez. \
 BrunoAG2610 - Bruno Aguilar. \
-Dieg0Her13ra o dhh-maker - Diego Herrera Hernández
+Dieg0Her13ra o dhh-maker - Diego Herrera Hernández. \
+Antonio4240 - Antonio Velázquez Martínez.
 
 
 ## Dataset y Atribución
