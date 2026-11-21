@@ -36,8 +36,18 @@ describe("evaluateDepth", () => {
   });
 
   test("el texto de ayuda cita la referencia del eje", () => {
-    expect(describeDepth(evaluateDepth("2.5", findPosition("DI")))).toBe(
+    expect(describeDepth(evaluateDepth("2.5", findPosition("DI")), true)).toBe(
       "2.5 mm: debajo de la referencia de 3.2 mm (eje de dirección).",
+    );
+  });
+
+  test("sin medir, pide revisar solo las llantas en \"Revisar\"", () => {
+    const unmeasured = evaluateDepth("", findPosition("TI"));
+    expect(describeDepth(unmeasured, true)).toBe(
+      "Revisa este punto: mide la llanta con el medidor y anota la profundidad. Referencia NOM-068: 1.6 mm (otros ejes).",
+    );
+    expect(describeDepth(unmeasured, false)).toBe(
+      "Opcional: anota la profundidad si la mediste. Referencia NOM-068: 1.6 mm (otros ejes).",
     );
   });
 });

@@ -1,4 +1,4 @@
-/* Tokens del diseño "Revisión de llantas". Banco de trabajo en dos columnas; una sola en teléfono. */
+/* Tokens del diseño de NeoMEX. Banco de trabajo en dos columnas; una sola en teléfono. */
 :root {
   --bg: #f1f4f5;
   --surface: #ffffff;
@@ -279,7 +279,6 @@ svg.i {
 .field select:hover,
 .field input:hover { border-color: var(--fg-2); }
 .field input[aria-invalid="true"] { border-color: var(--warn); border-width: 2px; }
-.field-error { color: var(--warn); font-weight: 600; }
 .depth { display: flex; align-items: center; gap: 8px; }
 .depth input { font-family: var(--mono); max-width: 120px; }
 .depth span { color: var(--fg-2); font-size: 0.9375rem; }
@@ -326,14 +325,7 @@ svg.i {
 
 /* ---------- Reporte ---------- */
 .form { display: grid; gap: 14px; }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-@media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
-.check {
-  display: grid; grid-template-columns: 24px 1fr; gap: 10px; align-items: start;
-  font-size: 0.875rem; color: var(--fg); cursor: pointer; padding: 6px 0;
-}
-.check input { width: 22px; height: 22px; margin: 1px 0 0; accent-color: var(--accent); }
-.check span .muted { display: block; }
+.unit-field { max-width: 22rem; }
 .report {
   margin: 0; padding: 14px 16px; border-radius: var(--r-sm); background: var(--bg); border: 1px solid var(--line);
   font-family: var(--mono); font-size: 0.8125rem; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere;

@@ -124,7 +124,8 @@ export function ResultRow({ item, threshold, onPosition, onDepth, onRemove, onRe
   const evaluation = evaluateDepth(item.depthInput, findPosition(item.position));
   const evalId = `eval-${item.id}`;
   const depthId = `dep-${item.id}`;
-  const rowState = isDone(item) && needsReview(item.probability, threshold) ? "is-warn" : "is-ok";
+  const flagged = isDone(item) && needsReview(item.probability, threshold);
+  const rowState = flagged ? "is-warn" : "is-ok";
 
   return (
     <li className={`row ${rowState}`} id={rowDomId(item.id)}>
@@ -158,7 +159,7 @@ export function ResultRow({ item, threshold, onPosition, onDepth, onRemove, onRe
           </select>
         </div>
         <div className="field">
-          <label htmlFor={depthId}>Profundidad medida</label>
+          <label htmlFor={depthId}>Medición del técnico</label>
           <div className="depth">
             {/* type="text": con type="number" el navegador vacía "3,2" y la medición se pierde sin aviso. */}
             <input
@@ -176,7 +177,7 @@ export function ResultRow({ item, threshold, onPosition, onDepth, onRemove, onRe
           </div>
         </div>
         <p className={`eval ${depthTone(evaluation)}`} id={evalId}>
-          {describeDepth(evaluation)}
+          {describeDepth(evaluation, flagged)}
         </p>
       </div>
 

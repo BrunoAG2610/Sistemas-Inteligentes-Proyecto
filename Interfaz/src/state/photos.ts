@@ -94,7 +94,7 @@ type PhotoHandlers = {
 const handlers: PhotoHandlers = {
   added: (state, { uploads, preferredPosition }) => {
     // Las fotos reales reemplazan a los ejemplos: mezclarlos daría dos fotos por posición
-    // y cotizaciones de llantas que no existen.
+    // y un reporte con llantas que no existen.
     const real = state.filter((item) => !isExample(item));
     const initial: Placement = { used: usedPositions(real), items: [] };
     // Solo la primera foto usa la posición elegida en el vehículo, y solo si nadie la ocupó mientras tanto.
