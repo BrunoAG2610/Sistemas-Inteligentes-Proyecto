@@ -1,0 +1,18 @@
+{
+  "name": "sistemas-inteligentes-proyecto",
+  "version": "1.0.0",
+  "description": "xskf-4 - Sebastian Hernandez",
+  "homepage": "https://github.com/BrunoAG2610/Sistemas-Inteligentes-Proyecto#readme",
+  "bugs": {
+    "url": "https://github.com/BrunoAG2610/Sistemas-Inteligentes-Proyecto/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrunoAG2610/Sistemas-Inteligentes-Proyecto.git"
+  },
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
