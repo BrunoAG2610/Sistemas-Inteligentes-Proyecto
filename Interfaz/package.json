@@ -1,8 +1,12 @@
 {
   "name": "revision-llantas-interfaz",
-  "private": true,
   "version": "0.1.0",
+  "private": true,
+  "description": "Página para hacer triaje con fotos: el técnico sube la foto del costado de cada llanta y el modelo estima la\r probabilidad de defecto visible. Con eso decide qué llanta medir primero con el medidor. Es una revisión\r informativa, no oficial.",
+  "license": "ISC",
+  "author": "",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
