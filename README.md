@@ -3,7 +3,7 @@
 
 ## Contribuidores
 xskf-4 - Sebastian Hernandez Reyes. \
-BrunoAG2610 - Bruno Aguilar. \
+BrunoAG2610 - Bruno Aguilar Buendía. \
 Dieg0Her13ra o dhh-maker - Diego Herrera Hernández. \
 Antonio4240 o JOSE_CARLOS\tonis - Antonio Velázquez Martínez.
 
