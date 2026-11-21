@@ -5,7 +5,7 @@
 xskf-4 - Sebastian Hernandez. \
 BrunoAG2610 - Bruno Aguilar. \
 Dieg0Her13ra o dhh-maker - Diego Herrera Hernández. \
-Antonio4240 - Antonio Velázquez Martínez.
+Antonio4240 o JOSE_CARLOS\tonis - Antonio Velázquez Martínez.
 
 
 ## Dataset y Atribución
