@@ -2,7 +2,7 @@
 **NeuMEX** es una solución de visión por computadora basada en una Red Neuronal Convolucional (CNN) diseñada y entrenada desde cero en TensorFlow / Keras. A partir de una fotografía, la aplicación analiza el neumático en segundos y lo clasifica como en buen estado (`good`) o defectuoso (`defective`), ayudando a prevenir accidentes viales y priorizar qué llantas requieren medición o reemplazo inmediato.
 
 ## Contribuidores
-xskf-4 - Sebastian Hernandez. \
+xskf-4 - Sebastian Hernandez Reyes. \
 BrunoAG2610 - Bruno Aguilar. \
 Dieg0Her13ra o dhh-maker - Diego Herrera Hernández. \
 Antonio4240 o JOSE_CARLOS\tonis - Antonio Velázquez Martínez.
