@@ -17,7 +17,7 @@ test("ordena por posición, marca REVISAR según el umbral y etiqueta el origen"
   const lines = buildReport({ unit: " U-014 ", date: DATE, threshold: THRESHOLD, entries }).split("\n");
 
   expect(lines.slice(0, HEADER_LINES)).toEqual([
-    "REVISIÓN INFORMATIVA DE LLANTAS (NO OFICIAL)",
+    "NeoMEX · REVISIÓN INFORMATIVA DE LLANTAS (NO OFICIAL)",
     "Unidad: U-014   Fecha: 20/11/2026",
     "Umbral de alerta: 0.40",
   ]);
@@ -26,8 +26,24 @@ test("ordena por posición, marca REVISAR según el umbral y etiqueta el origen"
     "- Trasera izquierda: REVISAR  P=0.47  [simulado]",
     "- Sin posición: sin hallazgos visibles  P=0.20",
   ]);
-  expect(lines).toContain("    Profundidad medida: 4.0 mm (cumple ref. 3.2)");
-  expect(lines).toContain("    Profundidad medida: 1.2 mm (debajo de ref. 1.6)");
+  expect(lines).toContain("    Medición del técnico: 4.0 mm (cumple ref. 3.2)");
+  expect(lines).toContain("    Medición del técnico: 1.2 mm (debajo de ref. 1.6)");
+});
+
+test("una llanta en REVISAR sin medir queda pendiente; una sin hallazgos solo sin medir", () => {
+  const entries: readonly ReportEntry[] = [
+    { position: "DD", probability: P_HIGH, source: "api", depthInput: "" },
+    { position: "TD", probability: P_LOW, source: "api", depthInput: "" },
+  ];
+  const lines = buildReport({ unit: "", date: DATE, threshold: THRESHOLD, entries }).split("\n");
+  expect(lines).toEqual(
+    expect.arrayContaining([
+      "- Delantera derecha: REVISAR  P=0.82",
+      "    Medición del técnico: pendiente de medir con medidor",
+      "- Trasera derecha: sin hallazgos visibles  P=0.20",
+      "    Medición del técnico: sin medir",
+    ]),
+  );
 });
 
 test("sin fotos analizadas lo dice explícitamente", () => {

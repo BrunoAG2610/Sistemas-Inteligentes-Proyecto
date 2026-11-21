@@ -53,15 +53,21 @@ type DepthDescriber = {
 
 const depthDescriptions: DepthDescriber = {
   "no-position": () => "Asigna la posición para compararla con la referencia.",
-  unmeasured: (e) => `Referencia NOM-068: ${referenceText(e)}.`,
+  unmeasured: (e) => `Opcional: anota la profundidad si la mediste. Referencia NOM-068: ${referenceText(e)}.`,
   "not-a-number": () => "Escribe solo el número en milímetros, como 3.2 o 3,2.",
   "out-of-range": () => `Escribe un valor entre ${DEPTH_MIN_MM} y ${DEPTH_MAX_MM} mm.`,
   below: (e) => `${formatMm(e.depth)} mm: debajo de la referencia de ${referenceText(e)}.`,
   meets: (e) => `${formatMm(e.depth)} mm: cumple la referencia de ${referenceText(e)}.`,
 };
 
-/** Texto de ayuda bajo el campo de profundidad. */
-export function describeDepth(evaluation: DepthEvaluation): string {
+/**
+ * Texto de ayuda bajo el campo de medición.
+ * `flagged`: la llanta quedó en "Revisar", así que medirla es la tarea pendiente del técnico.
+ */
+export function describeDepth(evaluation: DepthEvaluation, flagged: boolean): string {
+  if (flagged && evaluation.kind === "unmeasured") {
+    return `Revisa este punto: mide la llanta con el medidor y anota la profundidad. Referencia NOM-068: ${referenceText(evaluation)}.`;
+  }
   // TypeScript no correlaciona el handler indexado con la variante concreta;
   // el Record total de arriba garantiza que cada clave recibe su propia variante.
   const describe = depthDescriptions[evaluation.kind] as (e: DepthEvaluation) => string;

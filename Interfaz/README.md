@@ -77,15 +77,13 @@ y no se vuelve a llamar al servidor. `clase` y `umbral` del servidor se validan,
 - **Métricas del umbral.** El panel muestra "—" hasta llenar `VALIDATION_CURVE` en
   [src/domain/threshold.ts](src/domain/threshold.ts) con la curva recall / falsas alarmas por umbral que salga
   del notebook `03_evaluacion_y_errores.ipynb`, un punto por cada paso de 0.05.
-- **Cotizaciones.** No existe endpoint todavía. El botón valida el consentimiento y el contacto, y luego avisa
-  que no se envió nada (`TODO` en [src/components/ReportPanel.tsx](src/components/ReportPanel.tsx)).
 
 ## Estructura
 
 ```
 src/
   api/predict.ts          contrato, validación de la respuesta, cliente y simulación
-  domain/                 reglas puras con pruebas: posiciones, profundidad NOM-068, umbral, archivos, contacto, reporte
+  domain/                 reglas puras con pruebas: posiciones, profundidad NOM-068, umbral, archivos, reporte
   state/photos.ts         estado de las fotos (unión discriminada analizando | falló | listo) y reducer
   hooks/                  usePhotos (coordina la API) y useAnnouncer (región aria-live)
   examples/               fotos de ejemplo en SVG

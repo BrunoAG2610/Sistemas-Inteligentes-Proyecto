@@ -34,8 +34,9 @@ const DEPTH_REPORT_TEXT: DepthReportText = {
   meets: (e) => `${formatMm(e.depth)} mm (cumple ref. ${formatMm(e.reference)})`,
 };
 
-function depthReportText(entry: ReportEntry): string {
+function depthReportText(entry: ReportEntry, flagged: boolean): string {
   const evaluation = evaluateDepth(entry.depthInput, findPosition(entry.position));
+  if (flagged && evaluation.kind === "unmeasured") return "pendiente de medir con medidor";
   // Sin posición no hay referencia, pero un valor capturado sigue siendo útil en el reporte.
   const captured = entry.depthInput.trim();
   if (evaluation.kind === "no-position" && captured) return `${captured} mm`;
@@ -49,7 +50,7 @@ const DATE_FORMAT = new Intl.DateTimeFormat("es-MX", { day: "2-digit", month: "2
 /** Texto plano para copiar y pegar en WhatsApp o correo. */
 export function buildReport(input: ReportInput): string {
   const header = [
-    "REVISIÓN INFORMATIVA DE LLANTAS (NO OFICIAL)",
+    "NeoMEX · REVISIÓN INFORMATIVA DE LLANTAS (NO OFICIAL)",
     `Unidad: ${input.unit.trim() || "sin número"}   Fecha: ${DATE_FORMAT.format(input.date)}`,
     `Umbral de alerta: ${formatProbability(input.threshold)}`,
     "",
@@ -59,10 +60,11 @@ export function buildReport(input: ReportInput): string {
   const body = sorted.length
     ? sorted.flatMap((entry) => {
         const name = findPosition(entry.position)?.name ?? "Sin posición";
-        const verdict = needsReview(entry.probability, input.threshold) ? "REVISAR" : "sin hallazgos visibles";
+        const flagged = needsReview(entry.probability, input.threshold);
+        const verdict = flagged ? "REVISAR" : "sin hallazgos visibles";
         return [
           `- ${name}: ${verdict}  P=${formatProbability(entry.probability)}${SOURCE_TAGS[entry.source]}`,
-          `    Profundidad medida: ${depthReportText(entry)}`,
+          `    Medición del técnico: ${depthReportText(entry, flagged)}`,
         ];
       })
     : ["Sin fotos analizadas."];

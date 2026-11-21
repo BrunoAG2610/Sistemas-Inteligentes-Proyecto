@@ -18,7 +18,7 @@ export function Header(): JSX.Element {
           />
         </svg>
         <div>
-          <h1>Revisión de llantas</h1>
+          <h1>NeoMEX</h1>
           <p>Triaje con foto para decidir qué llanta medir primero</p>
         </div>
       </div>
